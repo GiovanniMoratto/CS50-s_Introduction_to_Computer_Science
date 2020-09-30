@@ -3,30 +3,27 @@
 
 int main(void)
 {
-    int n;
-    do
-    {
-        //take user input
-        n = get_int("Height: ");
-    }
-    while (n < 1 || n > 8);
+    int n; // Declares Height variable
     
-    for (int i = 0; i < n; i++)
+    do // Do-While loop
     {
-        for (int j = 0; j < n; j++)
+        n = get_int("Height: "); //take user input
+    }
+    while (n < 1 || n > 8); // Condition re-prompting the user again and again until positive integer between 1 and 8
+    
+    for (int i = 0; i < n; i++) // Loop for lines
+    {
+        for (int j = 0; j < n; j++) // Loop for print
         {
-            if (i + j < n - 1)
-                //blanckspaces
+            if (i + j < n - 1) //blanckspaces
             {
                 printf(" ");
             }
-            //hashes #
-            else
+            else //hashes #
             {
                 printf("#");
             }
         }
         printf("\n");
     }
-
 }
