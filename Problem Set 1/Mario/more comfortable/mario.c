@@ -1,3 +1,7 @@
+//********************************************************************************************************************
+// Create a Nintendo’s Super Mario Brothers adjacent pyramids of blocks using hashes (#) for bricks.
+// Allow the user to decide just how tall the pyramid should be by first prompting them for a positive integer between, say, 1 and 8, inclusive.
+//********************************************************************************************************************
 #include <cs50.h>
 #include <stdio.h>
 
@@ -13,19 +17,19 @@ int main(void)
     
     for (int i = 0; i < n; i++) // Loop for lines
     {
-        for (int j = 0; j < n - i - 1; j++) // blanckspaces to align the first column
+        for (int j = 0; j < n - i - 1; j++) // blanckspaces to align the first pyramid
         {
             printf(" ");
         }
         
-        for (int column1 = 0; column1 <= i; column1++) //first column
+        for (int column1 = 0; column1 <= i; column1++) //first pyramid
         {
             printf("#");
         }
         
         printf("  "); //middle
        
-        for (int column2 = 0; column2 <= i; column2++) //secound column
+        for (int column2 = 0; column2 <= i; column2++) //secound pyramid
         {
             printf("#");
         }
