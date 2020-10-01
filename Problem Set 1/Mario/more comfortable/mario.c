@@ -3,31 +3,33 @@
 
 int main(void)
 {
-    int x;
-    do
+    int n; // Declares Height variable
+    
+    do // Do-While loop
     {
-        x = get_int("Height: ");
+        n = get_int("Height: "); // take user input
     }
-    while (x < 1 || x > 8);
-    //new line
-    for (int y = 0; y < x; y++)
+    while (n < 1 || n > 8); // Condition re-prompting the user again and again until positive integer between 1 and 8
+    
+    for (int i = 0; i < n; i++) // Loop for lines
     {
-        //blanckspaces
-        for (int k = 0; k < x - y - 1; k++)
+        for (int j = 0; j < n - i - 1; j++) // blanckspaces to align the first column
         {
             printf(" ");
         }
-        //first column
-        for (int z = 0; z <= y; z++)
+        
+        for (int column1 = 0; column1 <= i; column1++) //first column
         {
             printf("#");
         }
-        printf("  ");
-        //secound column
-        for (int z2 = 0; z2 <= y; z2++)
+        
+        printf("  "); //middle
+       
+        for (int column2 = 0; column2 <= i; column2++) //secound column
         {
             printf("#");
         }
-        printf("\n");
+        
+        printf("\n"); //new line
     }
 }
