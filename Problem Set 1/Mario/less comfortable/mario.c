@@ -1,5 +1,6 @@
 //********************************************************************************************************************
 // Create a Nintendo’s Super Mario Brothers right-aligned pyramid of blocks using hashes (#) for bricks.
+// Allow the user to decide just how tall the pyramid should be by first prompting them for a positive integer between, say, 1 and 8, inclusive.
 //********************************************************************************************************************
 #include <cs50.h>
 #include <stdio.h>
