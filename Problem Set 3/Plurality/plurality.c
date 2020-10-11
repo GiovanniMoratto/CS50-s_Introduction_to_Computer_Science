@@ -1,3 +1,7 @@
+//********************************************************************************************************************
+// Implement a program that runs a plurality election.
+//********************************************************************************************************************
+
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
@@ -32,14 +36,14 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    // Populate array of candidates //limite de 9 candidatos
+    // Populate array of candidates
     candidate_count = argc - 1; // number of arguments -1 (initial command)
-    if (candidate_count > MAX)
+    if (candidate_count > MAX) // Limite de 9 candidatos
     {
         printf("Maximum number of candidates is %i\n", MAX);
         return 2;
     }
-    for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++) // Loop checks every single argument until the number inside candidate_count
     {
         candidates[i].name = argv[i + 1]; // Sort candidates according to the command line // argv[i + 1] because argv[0] = program name
         candidates[i].votes = 0; // reset initial votes
@@ -63,7 +67,7 @@ int main(int argc, string argv[])
     print_winner();
 }
 
-int get_index(string name) //Identify the index number of string name
+int get_index(string name) // Loop checks every single argument until the number inside candidate_count
 {
     for (int i = 0; i < candidate_count; i++) // Loop using number of candidates
     {
@@ -94,7 +98,7 @@ int get_max(void)
     int max_votes = candidates[0].votes; // Assimilates the number of votes of candidate [0] to max_votes
     for (int i = 1; i < candidate_count; i++) // Loop using number of candidates
     {
-        if (candidates[i].votes > max_votes) // Compare the votes of the current candidate with the max_votes 
+        if (candidates[i].votes > max_votes) // Compare the votes of the current candidate with the max_votes
         {
             max_votes = candidates[i].votes; // if the current candidate is bigger than max_votes, than assimilates.
         }
