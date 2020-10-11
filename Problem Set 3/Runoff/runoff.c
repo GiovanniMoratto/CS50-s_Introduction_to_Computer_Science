@@ -1,3 +1,7 @@
+//********************************************************************************************************************
+// Implement a program that runs a runoff election.
+//********************************************************************************************************************
+
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
@@ -147,7 +151,7 @@ bool vote(int voter, int rank, string name)
         preferences[voter][rank] = index; // upadated the preferences[MAX_VOTERS][MAX_CANDIDATES]
         return true;
     }
-    
+
     return false;
 }
 
@@ -191,7 +195,7 @@ int find_min(void)
     // TODO
     int min = 0;
     bool have_found_first = false;
-    
+
     for (int i = 0; i < candidate_count; i++)
     {
         if (!candidates[i].eliminated)
@@ -223,7 +227,7 @@ bool is_tie(int min)
                 return false;
             }
         }
-    }   
+    }
     return true;
 }
 
