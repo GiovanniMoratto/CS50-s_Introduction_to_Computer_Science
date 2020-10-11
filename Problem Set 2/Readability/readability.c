@@ -1,3 +1,8 @@
+//********************************************************************************************************************
+// Implement a program that computes the approximate grade level needed to comprehend some text, per the Coleman-Liau index.
+// index = 0.0588 * L - 0.296 * S - 15.8
+// Here, L is the average number of letters per 100 words in the text, and S is the average number of sentences per 100 words in the text.
+//********************************************************************************************************************
 #include <stdio.h>
 #include <cs50.h>
 #include <string.h>
@@ -7,32 +12,25 @@
 int main(void)
 {
     //User Input
-    string text = get_string("Text: ");
-    
+    string text = get_string("Text: "); // Declare variable
+
     //variables
-    int number_character, number_special, count_special = 0;
+    int number_character;
+    int letters = 0;
     int number_spaces, count_spaces = 0;
     int number_sentences, count_sentences = 0;
-    char special[] = " '!@#$%¨&*()-_=+§´`[{ª]}º~^;:.>,</°?";
     char spaces[] = " ";
     char sentences[] = "!?.";
-    
-    // Count special characters
+
+    // Count letters
     for (number_character = 0; number_character < strlen(text); number_character++)
     {
-        for (number_special = 0; number_special < strlen(special); number_special++)
+        if (isalpha(text[number_character]))
         {
-            if (text[number_character] == special[number_special])
-            {
-                count_special++;
-            }
+            letters++;
         }
     }
-    
-    // Count letters
-    // Letters = Total characters - special characters
-    int letters = (strlen(text) - count_special);
-    
+
     // Count spaces
     for (number_character = 0; number_character < strlen(text); number_character++)
     {
@@ -44,11 +42,10 @@ int main(void)
             }
         }
     }
-    
+
     // Count Words
-    // Words = Total Spaces + 1
-    int words = count_spaces + 1;
-    
+    int words = count_spaces + 1; // Words = Total Spaces + 1
+
     // Count Sentences
     for (number_character = 0; number_character < strlen(text); number_character++)
     {
@@ -60,14 +57,14 @@ int main(void)
             }
         }
     }
-    
+
     // Values
     float L = (float) letters / words * 100;
     float S = (float) count_sentences / words * 100;
-    
+
     // Formula Coleman-Liau index
     float index  = (0.0588 * L) - (0.296 * S) - 15.8;
-    
+
     // Convert float to int
     int rounded_index = round(index);
 
@@ -82,7 +79,7 @@ int main(void)
     {
         printf("Before Grade 1\n");
     }
-    
+
     //Else print the index given by the coleman-liau index computation above
     else
     {
