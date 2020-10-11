@@ -1,3 +1,7 @@
+//********************************************************************************************************************
+// Implement a program that runs a Tideman election.
+//********************************************************************************************************************
+
 #include <cs50.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -170,6 +174,12 @@ int compare(const void *item1, const void *item2)
 void sort_pairs(void)
 {
     // TODO
+    // void qsort(void *base, size_t nitems, size_t size, int (*compar)(const void *, const void*))
+    //**Parameters**
+    // base − This is the pointer to the first element of the array to be sorted.
+    // nitems − This is the number of elements in the array pointed by base.
+    // size − This is the size in bytes of each element in the array.
+    // compar − This is the function that compares two elements.
     qsort(pairs, pair_count, sizeof(pair), compare);
     return;
 }
