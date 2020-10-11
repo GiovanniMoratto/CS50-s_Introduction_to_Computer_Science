@@ -1,3 +1,8 @@
+//********************************************************************************************************************
+// Create a program that encrypts messages using Caesar’s cipher.
+// ci = (pi + k) % 26
+//********************************************************************************************************************
+
 #include <stdio.h>
 #include <cs50.h>
 #include <ctype.h>
@@ -6,7 +11,7 @@
 
 int main(int argc, string argv[])
 {   
-    // Check it's a single command-line argument and if character is decimal digit
+    // Check it's a single command-line argument
     if (argc != 2)
     {
         printf("Usage: ./caesar key\n");
