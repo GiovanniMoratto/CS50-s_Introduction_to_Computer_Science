@@ -1,3 +1,10 @@
+//********************************************************************************************************************
+// Create a program that prompts the user for a credit card number and then reports (via printf) whether it is a valid American Express, MasterCard, or Visa card number.
+// AMEX\n or MASTERCARD\n or VISA\n or INVALID\n
+// User’s input will be entirely numeric (i.e., devoid of hyphens, as might be printed on an actual card)
+// If the user fails to provide a non-negative value, the program re-prompt the user for a valid amount again and again until the user complies.
+//********************************************************************************************************************
+
 #include <stdio.h>
 #include <string.h>
 #include <cs50.h>
@@ -6,17 +13,19 @@ int main(void)
 {
     long creditCardNumber; // Declare variable
 
-    do
+    do // Do-While loop
     {
         creditCardNumber = get_long("Number: \n"); //take user input
     }
-    while (creditCardNumber <= 0);
+    while (creditCardNumber <= 0); // Condition re-prompting the user
 
     long workingCC = creditCardNumber; // Declare variable
     int sum = 0; // Declare variable
     int count = 0; // Declare variable
     long divisor = 10; // Declare variable
     char result[11]; // Declare variable
+    
+    //Luhn’s Algorithm
 
     // 1st case
     while (workingCC > 0) // while loop
