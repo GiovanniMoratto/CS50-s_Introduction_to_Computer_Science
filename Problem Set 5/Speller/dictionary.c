@@ -23,7 +23,7 @@ typedef struct node
 }
 node;
 
-node* hashtable[HASHTABLE_SIZE];
+node *hashtable[HASHTABLE_SIZE];
 
 unsigned int num_words = 0;
 bool is_loaded_dict = false;
@@ -50,7 +50,7 @@ bool check(const char *word)
     int index = hash(check_word);
     if (hashtable[index] != NULL)
     {
-        for (node* nodeptr = hashtable[index]; nodeptr != NULL; nodeptr = nodeptr -> next)
+        for (node *nodeptr = hashtable[index]; nodeptr != NULL; nodeptr = nodeptr -> next)
         {
             if (strcmp(nodeptr -> word, check_word) == 0)
             {
@@ -87,7 +87,7 @@ bool load(const char *dictionary)
 {
     // TODO
 
-    FILE* infile = fopen(dictionary, "r");
+    FILE *infile = fopen(dictionary, "r");
     if (infile == NULL)
     {
         return false;
@@ -99,7 +99,7 @@ bool load(const char *dictionary)
     }
 
     char word[LENGTH + 1];
-    node* new_nodeptr;
+    node *new_nodeptr;
     while (fscanf(infile, "%s", word) != EOF)
     {
         num_words++;
@@ -109,7 +109,7 @@ bool load(const char *dictionary)
             new_nodeptr = malloc(sizeof(node));
             if (new_nodeptr == NULL)
             {
-                free (new_nodeptr);
+                free(new_nodeptr);
             }
         }
         while (new_nodeptr == NULL);
@@ -124,8 +124,8 @@ bool load(const char *dictionary)
         //else
         //{
         // Head of our link list
-            new_nodeptr -> next = hashtable[index];
-            hashtable[index] = new_nodeptr;
+        new_nodeptr -> next = hashtable[index];
+        hashtable[index] = new_nodeptr;
         //}
     }
     fclose(infile);
@@ -159,10 +159,10 @@ bool unload(void)
     {
         if (hashtable[i] != NULL)
         {
-            node* ptr = hashtable[i];
+            node *ptr = hashtable[i];
             while (ptr != NULL)
             {
-                node* predptr = ptr;
+                node *predptr = ptr;
                 ptr = ptr -> next;
                 free(predptr);
             }
